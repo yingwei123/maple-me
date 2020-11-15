@@ -104,7 +104,7 @@ function settings(){
 
 
 function offerAt(id, index){
-  let offerBy = document.getElementById("o"+index).value;
+
   let offerAmt = document.getElementById("i"+index).value;
   let co = document.getElementById("co"+index).innerHTML;
   let aw = document.getElementById("aw"+index).innerHTML;
