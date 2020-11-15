@@ -1,0 +1,91 @@
+
+
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+
+
+<script type = "text/javascript" src = "js/scripts.js"></script>
+<script>
+     
+
+ 
+  function signup(){
+  var email = document.getElementById("email").value;
+  email = email.replace(" ", "")
+
+  var password = document.getElementById("password").value;
+  var cpassword = document.getElementById("cpass").value;
+
+  var discord = document.getElementById("discord").value;
+
+  if(password == cpassword){
+    if(discord.includes('#')){
+      let discCheck = discord.split("#");
+
+      if(discCheck[1].length != 4){
+        alert("Wrong discord tag :<")
+      }
+      else{
+          auth.createUserWithEmailAndPassword(email, password).then(()=>{
+            var form = document.createElement("form");
+                document.body.appendChild(form);
+                form.method = "post"
+                form.action = "/signup"
+                    var element1 = document.createElement("INPUT");         
+                    element1.name="email"
+                    element1.value = email;
+                    element1.type = 'hidden'
+                    form.appendChild(element1);
+                    var element2 = document.createElement("INPUT");         
+                    element2.name="password"
+                    element2.value = password;
+                    element2.type = 'hidden'
+                    form.appendChild(element2);
+                    var element3 = document.createElement("INPUT");         
+                    element3.name="discord"
+                    element3.value = discord;
+                    element3.type = 'hidden'
+                    form.appendChild(element3);
+                form.submit();
+          }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          alert(errorMessage);
+          // ...
+        });
+      }
+    }
+    else{
+      alert("Wrong discord format :<")
+    }
+    
+
+  }
+  else{
+    alert("Your password doesnt match up :/")
+  }
+
+  
+}
+
+
+
+</script>
+
+<div> Register Now! :D</div>
+<br>
+<label> Email :</label>
+<input type = "email" id = "email" />
+<br>
+<label> Discord Tag : </label>
+<input type = "text" id = "discord"/>
+<br>
+<label> Password : </label>
+<input type = "password" id = "password"/>
+<br>
+<label> Confirm Password : </label> 
+<input type = "password" id = "cpass" />
+
+<button onclick = "signup()"> Sign up! </button>
+

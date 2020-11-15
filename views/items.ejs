@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+
+
+<script type = "text/javascript" src = "js/scripts.js"></script>
+
+
+<body>
+    <div hidden >Stop Snooping around in the src code -.-</div>
+
+    <div id = "items"> 
+        <button onclick = "dashboard()">Dashboard</button>
+        <button onclick = "addI()">Add Item</button>
+        <button onclick ="signOut()">Log out</button>
+        <button onclick ="settings()">Manage my Items</button>
+        <ul>
+            <% for (var i = 0; i < items.length ; i++) { %>
+                    <div>Owner Discord Tag = <%=discordOwner[i] %></div>
+                    <div> <img height = "300" width="200" src = "<%= items[i] %>">  </div>
+                    <div> C/o = <label id = <%= "coa"+ i %>><%= co[i]%></label> by <label id = <%="co"+i%>><%= by[i] %></label>, A/w =<label id = <%= "aw"+i %>  ><%= aw[i] %></label></div>
+                    <div><label > Offer by :</label> <input id = <%="o" + i %> /></div>
+                    <div><label > Offer Amt :</label> <input id =  <%= "i" +i %> /></div>
+                    <div hidden id = <%="id"+i %> ><%=itemId[i]%></div>
+                    <button id = "<%=itemId[i] %>" name = "<%= i %>"" onclick="offerAt(this.id,this.name)"> Make Offer!</button>
+         
+                    <br>
+                    <br>
+
+             
+            <% } %>
+        </ul>
+        
+        <form method = "GET" action = "/lookFor"><button type = "submit"> See some Goodies</button></form>
+    </div>
+</body>
+</html>

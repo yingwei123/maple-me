@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+    
+
+    <script type = "text/javascript" src = "js/scripts.js"></script>
+<script >
+
+
+
+
+
+function signIn(){
+
+    var email = document.getElementById("email").value;
+    email = email.replace(" ", "")
+
+    var password = document.getElementById("password");
+
+    const promise = auth.signInWithEmailAndPassword(email, password.value).then(() =>{
+                    var form = document.createElement("form");
+                document.body.appendChild(form);
+                form.method = "post"
+                form.action = "/login"
+                    var element1 = document.createElement("INPUT");         
+                    element1.name="email"
+                    element1.value = email;
+                    element1.type = 'hidden'
+                    form.appendChild(element1);
+                    var element2 = document.createElement("INPUT");         
+                    element2.name="password"
+                    element2.value = password;
+                    element2.type = 'hidden'
+                    form.appendChild(element2);
+                form.submit();
+    });
+    promise.catch(e => alert(e.message));
+}
+
+
+
+function signOut(){
+
+    auth.signOut();
+    //alert("Signed Out");
+
+}
+
+
+auth.onAuthStateChanged(function(user){
+    if(user){
+        var form = document.createElement("form");
+    document.body.appendChild(form);
+    form.method = "GET"
+    form.action = "/dashboard"
+    form.submit();
+    }
+});
+
+
+</script>
+<body>
+    <div> Sign in ^_^</div>
+    <label> Email :</label>
+    <input type = "email" id = "email"/>
+    <br>
+    <label> Password :</label>
+    <input type = "password" id = "password"/>
+    <br>
+    <button onclick = "signIn()">Test </button>
+    <br>
+    <br>
+    <div>
+        No account? <form method = "Get" action = "/signup"><button type="submit">Sign up Here </button></form> 
+    </div>
+</body>
+</html>

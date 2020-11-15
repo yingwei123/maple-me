@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+
+
+<script type = "text/javascript" src = "js/scripts.js"></script>
+
+
+<body>
+    <div id = "items"> 
+        <button onclick = "dashboard()">Dashboard</button>
+        <button onclick = "addI()">Add Item</button>
+        <button onclick ="signOut()">Log out</button>
+        <ul>
+            <% for (var i = 0; i < items.length ; i++) { %>
+                    <div id = <%= "owner"+i%>>Owner Discord Tag = <%=discordOwner[i] %></div>
+                    <div> <img id =<%="image"+i %> height = "300" width="200" src = "<%= items[i] %>">  </div>
+                    <div id = <%= "d"+ i %>> C/o = <label id = <%= "coa"+ i %>><%= co[i]%></label> by <label id = <%="co"+i%>><%= by[i] %></label>, A/w =<label id = <%= "aw"+i %>  ><%= aw[i] %></label></div>
+                    <div hidden id = <%="id"+i %> ><%=itemId[i]%></div>
+                    <button id = "<%=itemId[i] %>" name = "<%= i %>"" onclick="deleteListing(this.id,this.name)"> Delete this Listing</button>
+         
+                    <br>
+                    <br>
+
+             
+            <% } %>
+        </ul>
+
+    </div>
+</body>
+</html>
