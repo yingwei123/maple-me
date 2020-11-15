@@ -24,7 +24,7 @@ function hi(){
 function signOut(){
   
     auth.signOut();
-    window.location.href = "http://localhost:3000/"
+    window.location.href = "https://maple-market-offer.herokuapp.com/"
     
     }
 

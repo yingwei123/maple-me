@@ -5,18 +5,19 @@
 
 
 <script type = "text/javascript" src = "js/scripts.js"></script>
-
-<div> Preview : </div>
+<button onclick = "dashboard()">Back</button>
+<br>
+<div> Preview (Add Item Screen Shot please): </div>
 <img width="300" height="400" id = "img">
 <br>
 <body>
     <label> Add a screenshot of the item</label>
     <input type = "file" id = "file"  onchange="document.getElementById('img').src = window.URL.createObjectURL(this.files[0])" required>
     <br>
-    <label> Start offer(default 0) :</label>
+    <label> Start offer(Not required, default 0) :</label>
     <input id = "sb"/>
     <br>
-    <label> Auto Win(default N/A) :</label>
+    <label> Auto Win(Not Required, default N/A) :</label>
     <input id = "aw"/>
     <br>
     <button onclick = "addItem()"> Add Item :D</button>

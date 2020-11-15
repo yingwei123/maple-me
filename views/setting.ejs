@@ -12,7 +12,9 @@
     <div id = "items"> 
         <button onclick = "dashboard()">Dashboard</button>
         <button onclick = "addI()">Add Item</button>
+        <form method = "GET" action = "/lookFor"><button type = "submit"> See some Goodies</button></form>
         <button onclick ="signOut()">Log out</button>
+
         <ul>
             <% for (var i = 0; i < items.length ; i++) { %>
                     <div id = <%= "owner"+i%>>Owner Discord Tag = <%=discordOwner[i] %></div>
