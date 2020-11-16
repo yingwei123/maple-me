@@ -15,6 +15,9 @@
   firebase.initializeApp(firebaseConfig);
 
   const auth = firebase.auth();
+     var user = firebase.auth().currentUser;
+   
+
 
 
 function hi(){
@@ -24,7 +27,7 @@ function hi(){
 function signOut(){
   
     auth.signOut();
-    window.location.href = "https://maple-market-offer.herokuapp.com/"
+    window.location.href = "/"
     
     }
 
