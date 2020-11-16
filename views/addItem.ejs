@@ -2,7 +2,20 @@
 
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
-
+<script>
+    auth.onAuthStateChanged(function(user){
+    if(user){
+        var form = document.createElement("form");
+    document.body.appendChild(form);
+    form.method = "GET"
+    form.action = "/dashboard"
+    form.submit();
+    }
+    else{
+        window.location = "/"
+    }
+});
+</script>
 
 <script type = "text/javascript" src = "js/scripts.js"></script>
 <button onclick = "dashboard()">Back</button>

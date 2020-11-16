@@ -7,7 +7,20 @@
 
 <script type = "text/javascript" src = "js/scripts.js"></script>
 
-
+<script>
+    auth.onAuthStateChanged(function(user){
+    if(user){
+        var form = document.createElement("form");
+    document.body.appendChild(form);
+    form.method = "GET"
+    form.action = "/dashboard"
+    form.submit();
+    }
+    else{
+        window.location = "/"
+    }
+});
+</script>
 <body>
     <div id = "items"> 
         <button onclick = "dashboard()">Dashboard</button>
